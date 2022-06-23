@@ -32,7 +32,9 @@
       state: present
  
   - name: Change dir for postgresql base
-    postgresql_set:
-      name: data_directory
-      value: '/var/lib/postgresql'
+    lineinfile:
+      dest: /etc/postgresql/{{ ver }}/main/postgresql.conf 
+      regexp='^data_directory'
+      insertafter='^#data_directory'
+      line=data_directory = '{{ dir }}' 
       become_user: postgres
