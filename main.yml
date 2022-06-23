@@ -28,5 +28,5 @@
 
   - name: postgresql-server install
     apt:
-      name: postgresql="{{ ver }}"
+      name: postgresql-"{{ ver }}"
       state: present
