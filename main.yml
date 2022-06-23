@@ -25,7 +25,6 @@
 
   - name: Add Postgres repo to sources list
     apt_repository: repo='deb http://apt.postgresql.org/pub/repos/apt/ {{ distro }}-pgdg main' state=present
-    sudo: yes
 
   - name: postgresql-server install
     apt:
