@@ -21,5 +21,5 @@
   tasks:
   - name: postgresql-server install
     apt:
-      name: postgresql-server="{{ ver }}"
+      name: postgresql"{{ ver }}"-server
       state: present
