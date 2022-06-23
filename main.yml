@@ -40,7 +40,7 @@
 
   - name: Copy base dir
     copy:
-      src: /var/lib/postgresql/{{ ver }}/main
+      src: /var/lib/postgresql/{{ ver }}/main/
       dest: "{{ dir }}"
 
   - name: Restart postgresql
