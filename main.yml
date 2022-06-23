@@ -38,6 +38,11 @@
       insertafter: '^#data_directory'
       line: data_directory = '{{ dir }}'
 
+  - name: Copy base dir
+    synchronize:
+      src: /var/lib/postgresql/{{ ver }}/main
+      dest: {{ dir }}
+
   - name: Restart postgresql
     systemd:
       name: postgresql
