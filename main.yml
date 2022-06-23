@@ -36,4 +36,9 @@
       dest: /etc/postgresql/{{ ver }}/main/postgresql.conf 
       regexp: '^data_directory'
       insertafter: '^#data_directory'
-      line: data_directory = '{{ dir }}' 
+      line: data_directory = '{{ dir }}'
+
+  - name: Restart postgresql
+    systemd:
+      name: postgresql
+      state: restarted 
