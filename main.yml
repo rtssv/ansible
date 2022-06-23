@@ -41,7 +41,7 @@
   - name: Copy base dir
     synchronize:
       src: /var/lib/postgresql/{{ ver }}/main
-      dest: {{ dir }}
+      dest: "{{ dir }}"
 
   - name: Restart postgresql
     systemd:
