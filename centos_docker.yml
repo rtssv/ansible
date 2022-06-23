@@ -1,2 +1,2 @@
 - name: install docker on centos 
-  yum: name=docker.io state=latest
+  yum: name=docker state=latest
