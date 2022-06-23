@@ -1,0 +1,24 @@
+---
+
+- hosts: app 
+  gather_facts: yes 
+
+  tasks:
+
+  - name: docker install on centos
+    include_tasks: centos_docker.yml
+    when: (ansible_distribution == "CentOS")
+
+  - name: docker install on ubuntu 
+    include_tasks: ubuntu_docker.yml
+    when: (ansible_distribution == "Ubuntu")
+
+
+- hosts: database
+  gather_facts: yes 
+
+  tasks:
+  - name: postgresql-server install
+    apt:
+      name: postgresql-server="{{ ver }}"
+      state: present 

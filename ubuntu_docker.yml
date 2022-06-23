@@ -1,0 +1,2 @@
+- name: install docker on ubuntu 
+  apt: name=docker.io state=latest
