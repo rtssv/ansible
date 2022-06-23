@@ -39,7 +39,7 @@
       line: data_directory = '{{ dir }}'
 
   - name: Copy base dir
-    synchronize:
+    copy:
       src: /var/lib/postgresql/{{ ver }}/main
       dest: "{{ dir }}"
 
