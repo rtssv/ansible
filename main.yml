@@ -20,6 +20,6 @@
 
   tasks:
   - name: postgresql-server install
-    apt:
-      name: postgresql"{{ ver }}"-server
+    dnf:
+      name: '@postgresql:"{{ ver }}"'
       state: present
