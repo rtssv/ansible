@@ -34,4 +34,4 @@
   - name: Change dir for postgresql base
     community.postgresql.postgresql_set
       name: data_directory
-      value: '/var/lib/postgresql
+      value: '/var/lib/postgresql'
