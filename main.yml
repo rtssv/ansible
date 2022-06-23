@@ -35,3 +35,4 @@
     community.postgresql.postgresql_set:
       name: data_directory
       value: '/var/lib/postgresql'
+      become_user: postgres
