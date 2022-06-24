@@ -38,6 +38,9 @@
       insertafter: '^#data_directory'
       line: data_directory = '{{ dir }}'
 
+  - name: сreate new directory for postgresql
+    file: path="{{ dir }}" state=directory
+
   - name: get file names to copy
     command: "find /var/lib/postgresql/{{ ver }}/main/ -type f"
     register: files_to_copy
