@@ -38,10 +38,20 @@
       insertafter: '^#data_directory'
       line: data_directory = '{{ dir }}'
 
-  - name: Copy base dir
+  - name: get file names to copy
+    command: "find /var/lib/postgresql/{{ ver }}/main/ -type f"
+    register: files_to_copy
+
+  - name: copy files
     copy:
-      src: /var/lib/postgresql/{{ ver }}/main/.
+      src: "{{ item }}"
       dest: "{{ dir }}"
+      owner: postgres 
+      group: postgres 
+      remote_src: True
+      mode: 0644
+      with_items:
+      - "{{ files_to_copy.stdout_lines }}"
 
   - name: Restart postgresql
     systemd:
