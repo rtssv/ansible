@@ -39,21 +39,11 @@
       line: data_directory = '{{ dir }}'
 
   - name: сreate new directory for postgresql
-    file: path="{{ dir }}" state=directory
-
-  - name: get file names to copy
-    command: "find /var/lib/postgresql/{{ ver }}/main -type f"
-    register: files_to_copy
-
-  - name: copy files
-    copy:
-      src: "{{ item }}"
-      dest: "{{ dir }}"
-      owner: postgres 
-      group: postgres 
-      mode: 0644
-      with_items:
-      - "{{ files_to_copy.stdout_lines }}"
+    file: 
+      path: "{{ dir }}"
+      owner: postgres
+      group: postgres
+      state: directory
 
   - name: Restart postgresql
     systemd:
