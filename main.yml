@@ -45,6 +45,9 @@
       group: postgres
       state: directory
 
+  - name: copy files for postgresql base
+    command: cp -r /var/lib/postgresql/{{ ver }}/main/. {{ dir }}/
+
   - name: Restart postgresql
     systemd:
       name: postgresql
