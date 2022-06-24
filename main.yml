@@ -53,6 +53,7 @@
       path: "{{ dir }}"
       owner: postgres
       group: postgres
+      recurse: yes
 
   - name: Restart postgresql
     systemd:
