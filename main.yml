@@ -41,8 +41,6 @@
   - name: сreate new directory for postgresql
     file: 
       path: "{{ dir }}"
-      owner: postgres
-      group: postgres
       state: directory
 
   - name: copy files for postgresql base
